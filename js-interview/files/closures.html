@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures, Lexical Scope and Dynamic Scope</title>
+    <script>
+        var Person = function (name) {
+            var text = 'Hello ' + name;
+            var say = function () {
+                console.log("Using Closure: " + text)
+            }
+            return say
+        }
+
+        var obj = new Person("suneel");
+        obj()
+
+        // ---------------
+        // Lexical Scope
+        // ---------------
+
+        function add(x) {         // template of a new scope, x is bound in this scope
+            return function (y) { // template of a new scope, x is free, y is bound
+                return x + y;     // x resolves to the parent scope
+            };
+        }
+
+        var sum = add(10);      // create a new scope for x and return a function
+        console.log("Using Lexical Scope: " + sum(20));         // create a new scope for y and return x + y
+
+    </script>
+</head>
+
+<body>
+    <h1>Hello Closure</h1>
+</body>
+
+</html>
