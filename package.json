@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/suneelkumarr/js-node-interview#readme",
   "dependencies": {
+    "flat": "^5.0.2",
+    "lodash": "^4.17.21",
     "moment": "^2.29.4"
   }
 }
